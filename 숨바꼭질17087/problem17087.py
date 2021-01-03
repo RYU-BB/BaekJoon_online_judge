@@ -1,4 +1,4 @@
-def gcd(x, y):
+def uc(x, y):
     while y != 0:
         x, y = y, x % y
     return x

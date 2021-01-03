@@ -19,5 +19,5 @@ for _ in range(test_num):
     for i in range(2, num // 2 + 1):
         if prime_check[i] == True:
             if prime_check[num - i] == True:
-                count += 1
+                count += 1      // count 증가
     print(count)
