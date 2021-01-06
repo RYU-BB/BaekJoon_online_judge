@@ -1,5 +1,5 @@
 max = 100001
-d = [[0, 0, 0, 0] for _ in range(max)]
+d = [[0, 0, 0] for _ in range(max)]
 d[1], d[2], d[3] = [1, 0, 0], [0, 1, 0], [1, 1, 1]
 
 for i in range(4, max):
