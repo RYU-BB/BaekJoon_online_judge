@@ -1,9 +1,9 @@
 n = int(input())
-pack = [0] + list(map(int,input().split()))
-max_cost = [0]*(n+1)
+pack = [0] + list(map(int, input().split()))
+min_cost = pack[:]
 
 for i in range(1, n+1):
     for j in range(1, i+1):
-        max_cost[i] = max(max_cost[i],max_cost[i-j]+pack[j])
+        min_cost[i] = min(min_cost[i], min_cost[i - j] + pack[j])
 
-print(max_cost[n])
+print(min_cost[n])
