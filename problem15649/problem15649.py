@@ -1,11 +1,20 @@
+def go(index):
+    if index == m:
+        print(*array)
+
+    for i in range(1, n + 1):
+        if check[i]:
+            continue
+        check[i] = True
+        array.append(i)
+        go(index + 1)
+
+        array.pop()
+        check[i] = False
+
+
 n, m = map(int, input().split())
-num = 1
+check = [False for _ in range(n + 1)]
+array = []
 
-for i in range(m):
-    num *= (n - i)
-
-num_list = [i + 1 for i in range(n)]
-
-for i in range(num):
-    for j in range(m):
-        print(num_list[j], end=" ")
+go(0)
