@@ -1,18 +1,13 @@
-house_n = int(input())
-d = [[0, 0, 0] for _ in range(house_n)]
+n = int(input())
+dp = [0 for i in range(n + 1)]
+square = [i * i for i in range(1, 317)]
 
-for i in range(house_n):
-    color = list(map(int, input().split()))
+for i in range(1, n + 1):
+    s = []
+    for j in square:
+        if j > i:
+            break
+        s.append(dp[i - j])
+    dp[i] = min(s) + 1
 
-    if not i:
-        d[i] = color
-    else:
-        for j in range(3):
-            if j == 0:
-                d[i][j] = min(d[i - 1][1] + color[j], d[i - 1][2] + color[j])
-            if j == 1:
-                d[i][j] = min(d[i - 1][0] + color[j], d[i - 1][2] + color[j])
-            if j == 2:
-                d[i][j] = min(d[i - 1][0] + color[j], d[i - 1][1] + color[j])
-
-print(min(d[house_n - 1]))
+print(dp[n])
