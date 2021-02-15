@@ -6,14 +6,14 @@ def check(num):
     return True
 
 
-max = 1000001
+max_num = 1000001
 
 channel_num = int(input())
 m = int(input())
 broken_num = list(input().strip())
 result = abs(channel_num - 100)
 
-for i in range(max):
+for i in range(max_num):
     if check(i):
         result = min(result, len(str(i)) + abs(i - channel_num))
 print(result)
