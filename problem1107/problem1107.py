@@ -1,19 +1,27 @@
-def check(num):
-    num = list(str(num))
-    for n in num:
-        if n in broken_num:
-            return False
-    return True
+import math
 
 
-max = 1000001
-
-channel_num = int(input())
+n = int(input())
 m = int(input())
-broken_num = list(input().strip())
-result = abs(channel_num - 100)
+ms = []
+if m != 0:
+    ms = list(input().split())
 
-for i in range(max):
-    if check(i):
-        result = min(result, len(str(i)) + abs(i - channel_num))
-print(result)
+ans = math.inf
+length = 0
+
+for i in range(1000000):
+    broken = False
+    for s in str(i):
+        if s in ms:
+            broken = True
+    if broken:
+        pass
+    else:
+        if ans > abs(n - i):
+            ans = abs(n - i)
+            length = len(str(i))
+
+ans = min(ans + length, abs(n - 100))
+
+print(ans)
